@@ -16,7 +16,7 @@
 	const productNumber = 1500000;
 	const productPrice = 10;
 }
-/*
+
 {
 	const productName = prompt('Наименование товара');
 	const productCategory = prompt('Категория товара');
@@ -43,4 +43,4 @@
 	console.log(typeof Number(productPrice));
 
 	console.log(`На складе товар ` + productName + ` стоимостью ` + productPrice + `₽ имеется в размере ` + productNumber + ` шт.`);
-}*/
+}

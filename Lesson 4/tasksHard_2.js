@@ -1,6 +1,5 @@
 'use strict';
 
-
 {
 	const monthIncome = prompt('Введите Ваш доход за месяц для подсчета налога.');
 	let tax;
