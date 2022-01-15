@@ -36,8 +36,8 @@
 {
 	const moneyAmount = prompt('Какую сумму хотите снять?');
 
-	if (moneyAmount > 0 && moneyAmount < 100) {
-		alert('Минимальная сумма для снятия - 100₽');
+	if (moneyAmount % 100 === 0) {
+		alert('Минимальные купюры для снятия - 100₽');
 	} else {
 		alert(`Сумма ${moneyAmount} возможна для снятия`);
 	}

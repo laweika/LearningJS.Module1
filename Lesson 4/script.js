@@ -20,27 +20,16 @@
 {
 	const productName = prompt('Наименование товара');
 	const productCategory = prompt('Категория товара');
-
-	const productNumber = prompt('Количество товара');
-
-	if (Number.isNaN(+productNumber)) {
-		alert("Вы ввели некорректные данные");
-	} else {
-
-	}
-
-	const productPrice = prompt('Цена товара');
-
-	if (Number.isNaN(+productPrice)) {
-		alert("Вы ввели некорректные данные");
-	} else {
-
-	}
+	const productNumber = +prompt('Количество товара');
+	const productPrice = +prompt('Цена товара');
 
 	console.log(typeof productName);
 	console.log(typeof productCategory);
 	console.log(typeof Number(productNumber));
 	console.log(typeof Number(productPrice));
 
-	console.log(`На складе товар ` + productName + ` стоимостью ` + productPrice + `₽ имеется в размере ` + productNumber + ` шт.`);
+	if (typeof productPrice === 'number' && typeof productNumber === 'number' && !isNan(productPrice) && !isNaN(productNumber)) {
+		console.log(`На складе товар ` + productName + ` стоимостью ` + productPrice + `₽ имеется в размере ` + productNumber + ` шт.`);
+	}
+
 }

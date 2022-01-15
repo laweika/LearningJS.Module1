@@ -13,7 +13,5 @@
 	} else if (monthIncome >= 50000) {
 		tax = (monthIncome - 50000) * 0.3;
 		alert(`Ваш налог составляет ${Math.round(tax)}₽`);
-	} else {
-
 	}
 }
