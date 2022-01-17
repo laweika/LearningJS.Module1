@@ -11,38 +11,40 @@
 Порядок применения скидок должен соблюдаться
 */
 
-const canculate = (a, b, c) => {
-	let totalPrice = a;
-	let totalProductNum = b;
-	let promocode = c;
-
-
-	const countProductNumber = () => {
-		if (totalProductNum > 10) {
-			return totalPrice * 0.97;
-		}
+const calcProductNumberDisc = (totalProductNum, totalPrice) => {
+	if (totalProductNum > 10) {
+		return totalPrice * 0.97;
 	}
+	return totalPrice;
+}
 
-	countProductNumber();
-
-	const countTotalPrice = () => {
-		if (totalPrice > 30000) {
-			return (totalPrice - 30000) * 0.85;
-		}
+const calcDiscOver = (totalPrice) => {
+	if (totalPrice > 30000) {
+		return (totalPrice - 30000) * 0.85 + 30000;
 	}
-	countTotalPrice();
+	return totalPrice;
+}
 
-	const checkPromocode = () => {
-		if (promocode === 'METHED') {
-			return totalPrice * 0.9;
-		} else if (promocode === 'G3H2Z1') {
-			return totalPrice - 500;
-		}
-
+const checkPromocode = (promocode, totalPrice) => {
+	if (promocode === 'METHED') {
+		return totalPrice * 0.9;
+	} else if (promocode === 'G3H2Z1' && totalPrice > 2000) {
+		return totalPrice - 500;
 	}
-	checkPromocode();
+	return totalPrice;
+}
+
+const calculate = (totalPrice, totalProductNum, promocode) => {
+
+	totalPrice = calcProductNumberDisc(totalProductNum, totalPrice);
+
+	totalPrice = calcDiscOver(totalPrice);
+
+	totalPrice = checkPromocode(promocode, totalPrice);
 
 	return `Итоговая сумма составила - ${totalPrice}.`;
 }
 
-console.log(canculate(12000, 13, 'METHED'));
+console.log(calculate());
+
+
