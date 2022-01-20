@@ -9,19 +9,7 @@
 Используйте цикл for в функции
 */
 
-/*
 const isPrime = (num) => {
-	for (let primeNum = num, x = Math.round(Math.random() * 10), result = primeNum / x; result === 1; Boolean(primeNum) === 'true') {
-
-		console.log(x);
-
-		if (x !== primeNum) break;
-		if (primeNum % x !== 0) break;
-	}
-}*/
-
-
-const isPrime2 = (num) => {
 	for (let testNum = 2; testNum < num; testNum++) {
 
 		if (num % testNum === 0) {
@@ -31,5 +19,4 @@ const isPrime2 = (num) => {
 	return true;
 }
 
-
-console.log(isPrime2(151));
+console.log(isPrime());
