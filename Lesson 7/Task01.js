@@ -9,11 +9,6 @@
 const allStudentsList = ['Петров', 'Иванов', 'Васечкин', 'Харламов', 'Зверьков', 'Попов'];
 const failedExamStudentsList = ['Иванов', 'Васечкин'];
 
-const filter = (allStudentsList, failedExamStudentsList) => {
-
-	const passedExamStudentsList = allStudentsList.splice(failedExamStudentsList.length);
-
-	return passedExamStudentsList;
-}
+const filter = (allStudentsList, failedExamStudentsList) => allStudentsList.splice(failedExamStudentsList.length);
 
 console.log(filter(allStudentsList, failedExamStudentsList));

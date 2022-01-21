@@ -12,13 +12,15 @@ addPrefix(names, 'Mr')
 ['Mr Noah', 'Mr Liam', 'Mr Mason', 'Mr Jacob', 'Mr. Robot', 'Mr William', 'Mr Ethan', 'Mr Michael', 'Mr Alexander'];
 */
 
-const names = ['Noah', 'Liam', 'Mason', 'Jacob', 'Robot', 'William', 'Ethan', 'Michael', 'Alexander'];
-console.log(names);
+const addPrefix = (names, prefix = 'Mr') => {
 
-const addPrefix = () => {
-	names.splice(0, 1, 'Mr Noah');
-	const addedPrefix = names.join(', Mr ').split();
-	return addedPrefix;
+	const namesWithPrefix = [];
+
+	for (let i = 0; i < names.length; i++) {
+		namesWithPrefix[i] = prefix + ' ' + names[i];
+	};
+
+	return namesWithPrefix;
 };
 
-console.log(addPrefix(names));
+console.log(addPrefix(['Noah', 'Liam', 'Mason', 'Jacob', 'Robot', 'William', 'Ethan', 'Michael', 'Alexander']));

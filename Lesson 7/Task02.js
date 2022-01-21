@@ -15,7 +15,6 @@ const getAverageValue = () => {
 	for (let i = 0; i < allСashbox.length; i++) {
 
 		allСashboxTotalSum = allСashbox[i] + allСashboxTotalSum;
-		console.log(allСashboxTotalSum);
 	}
 
 	const averageValue = Math.floor(allСashboxTotalSum / allСashbox.length);
