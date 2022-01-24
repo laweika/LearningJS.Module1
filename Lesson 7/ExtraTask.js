@@ -34,9 +34,8 @@ const getAveragePriceGoods = (allСashbox2) => {
   let totalGoodsPriceSum = 0;
 
   for (let i = 0; i < cloneAllCashbox2.length; i++) {
-    const [[, sum]] = cloneAllCashbox2;
 
-    totalGoodsPriceSum += sum[i][1];
+    totalGoodsPriceSum += allСashbox2[i][1];
   }
   console.log(totalGoodsPriceSum);
 
@@ -44,9 +43,8 @@ const getAveragePriceGoods = (allСashbox2) => {
   let totalGoodsAmount = 0;
 
   for (let i = 0; i < cloneAllCashbox2.length; i++) {
-    const [[goodsAmount,]] = cloneAllCashbox2;
 
-    totalGoodsAmount += (goodsAmount[i][0]);
+    totalGoodsAmount += allСashbox2[i][0];
   }
   console.log(totalGoodsAmount);
 
