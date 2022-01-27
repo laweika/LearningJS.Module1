@@ -5,22 +5,21 @@
 	Функция принимает один обязательный параметр это количество элементов в массиве и возвращает массив со случайными числами от одного до 100 включительно;
 */
 
-const getRandomNum = randomNum => randomNum = Math.floor(Math.random() * 100) + 1;
+const getRandomNum = () => Math.floor(Math.random() * 100) + 1;
 
 console.log(getRandomNum());
+
 
 
 const getRandomArr = (arrLength) => {
 	let arr = [];
 	arr.length = arrLength;
 
+	for (let i = 0; i < arrLength; i++) {
+		arr[i] = getRandomNum();
+	}
+
 	console.log(arr);
-
-	const result = arr.map(() => {
-		arr.splice(0, arrLength, getRandomNum());
-	});
-
-	console.log(result);
-
 }
-console.log(getRandomArr(7));
+
+getRandomArr(10);
