@@ -7,55 +7,25 @@
 */
 
 
-const getRandomNum2 = () => Math.floor(Math.random() * 100) + 1;
+const getRandomNum2 = (m, n) => {
+	const max = Math.max(n, m);
+	const min = Math.min(n, m);
 
+	Math.floor((Math.random() * max) + 1) - min;
+}
 
-const getRandomArr2 = (arrLength, n, m) => {
+const randomNum2 = getRandomNum2(20, 50)
+console.log(randomNum2);
 
+const getRandomArr2 = (arrLength) => {
 	let arr = [];
 	arr.length = arrLength;
 
-	if (getRandomNum2() > n && getRandomNum2() < m || getRandomNum2() < n && getRandomNum2() > m) {
-		for (let i = 0; i < arr.length; i++) {
-			arr[i] = getRandomNum2();
-		}
+	for (let i = 0; i < arrLength; i++) {
+		arr[i] = randomNum2;
 	}
-
 
 	console.log(arr);
 }
 
-getRandomArr2(10, 20, 40);
-
-
-
-
-
-/*
-
-		while (randomNum2 > n && randomNum2 < m) {
-			if (randomNum2 !== 'empty') {
-				break;
-			} else {
-				randomNum2 = getRandomNum2();
-				continue;
-			}
-		}
-	}
-	*/
-
-/*
-	while (n > m) {
-		if (n > getRandomArr2() && getRandomArr2 > m) {
-			arr[i] === 'empty';
-			continue;
-		}
-	}
-	
-	while (m > n) {
-		if (getRandomArr2() > n && getRandomArr2 < m) {
-			arr[i] === 'empty';
-			continue;
-		}
-	}
-*/
+console.log(getRandomArr2(10));

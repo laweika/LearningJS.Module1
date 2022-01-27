@@ -27,7 +27,12 @@ const guessNum = () => {
 	let num = +prompt('Введите число.');
 	console.log(num);
 
+	if (num === 'null' || num === 0) {
+		return;
+	};
+
 	while (num !== randomNumber) {
+
 		if (typeof num === 'number' && !Number.isNaN(num)) {
 			if (num > randomNumber) {
 				changePromtText('Меньше!');
@@ -40,12 +45,12 @@ const guessNum = () => {
 			if (num === randomNumber) {
 				alert('Правильно!');
 				break;
-			}
+			};
 		} else {
 			changePromtText('Это не число, введите число!');
-		}
-	}
-}
+		};
+	};
+};
 
 guessNum();
 
