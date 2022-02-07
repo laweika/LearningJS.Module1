@@ -7,25 +7,17 @@
 */
 
 
-const getRandomNum2 = (m, n) => {
+const getRandomArr2 = (arrLength, n, m) => {
+	let arr = [];
+
 	const max = Math.max(n, m);
 	const min = Math.min(n, m);
 
-	Math.floor((Math.random() * max) + 1) - min;
-}
-
-const randomNum2 = getRandomNum2(20, 50)
-console.log(randomNum2);
-
-const getRandomArr2 = (arrLength) => {
-	let arr = [];
-	arr.length = arrLength;
-
 	for (let i = 0; i < arrLength; i++) {
-		arr[i] = randomNum2;
+		arr[i] = Math.floor(Math.random() * (max - min + 1)) + min;
 	}
 
 	console.log(arr);
 }
 
-console.log(getRandomArr2(10));
+getRandomArr2(10, 20, 40);

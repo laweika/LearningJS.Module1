@@ -18,11 +18,6 @@ const getRandomNumber = () => Math.floor(Math.random() * 100) + 1;
 let randomNumber = getRandomNumber();
 console.log(randomNumber);
 
-const changePromtText = (promptText) => {
-	promptText === '';
-	num = +prompt(promptText);
-};
-
 const guessNum = () => {
 	let num = +prompt('Введите число.');
 	console.log(num);
@@ -31,52 +26,25 @@ const guessNum = () => {
 		return;
 	};
 
-	while (num !== randomNumber) {
-
-		if (typeof num === 'number' && !Number.isNaN(num)) {
-			if (num > randomNumber) {
-				changePromtText('Меньше!');
-				continue;
-			};
-			if (num < randomNumber) {
-				changePromtText('Больше!');
-				continue;
-			};
-			if (num === randomNumber) {
-				alert('Правильно!');
-				break;
-			};
-		} else {
-			changePromtText('Это не число, введите число!');
+	if (typeof num === 'number' && !Number.isNaN(num)) {
+		if (num > randomNumber) {
+			alert('Меньше!');
+			guessNum();
 		};
-	};
-};
-
-guessNum();
-
-/*
-const guessNum = () => {
-	let num = +prompt('Введите число.');
-	console.log(num);
-
-	while (num !== randomNumber) {
-		if (typeof num === 'number' && !Number.isNaN(num)) {
-			if (num > randomNumber) {
-				num = +prompt('Меньше!');
-				continue;
-			};
-			if (num < randomNumber) {
-				num = +prompt('Больше!');
-				continue;
-			};
-			if (num === randomNumber) {
-				alert('Правильно!');
-				break;
-			}
-		} else {
-			num = +prompt('Это не число, введите число!');
+		if (num < randomNumber) {
+			alert('Больше!');
+			guessNum();
+		};
+		if (num === randomNumber) {
+			alert('Правильно!');
+			return;
 		}
+	} else {
+		alert('Это не число, введите число!');
+		guessNum();
 	}
 }
-*/
+
+
+guessNum();
 
