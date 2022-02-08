@@ -33,18 +33,16 @@ const cart = {
 	totalPrice: 0,
 	count: 0,
 	add(newItem, newItemPrice, newItemNum = 1) {
-		cart.items = newItem;
-		newItem === '';
-		newItemPrice = 0;
-	},
-	increaseCount(newItemNum) {
-		return count = + newItemNum;
-	},
-	calculateItemPrice(newItemPrice) {
-		return totalPrice = + newItemPrice;
-	},
-	getTotalPrice() {
-		return this.totalPrice;
+		this.items.push(newItem);
+		increaseCount(newItemNum) {
+			count = + newItemNum;
+		};
+		calculateItemPrice(newItemPrice) {
+			totalPrice = + newItemPrice;
+		};
+		getTotalPrice(totalPrice) {
+			this.totalPrice;
+		};
 	},
 	clear() {
 		return;
@@ -55,8 +53,8 @@ const cart = {
 	},
 };
 
-console.log(cart.add('dd', 45, 2));
-cart.add();
-cart.add();
+console.log(cart.add('barbi', 4500, 2));
+cart.add('teddy bear', 2100);
+cart.add('car toy', 1500, 8);
 
 console.log(cart.print());
