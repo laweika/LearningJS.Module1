@@ -31,11 +31,6 @@ const getRandomArr3 = (arrLength, n, m, str) => {
 		filteredArr = arr.filter((num) => num % 2 !== 0)
 	}
 
-	while (filteredArr.length < arrLength) {
-		filteredArr.push(??);
-		continue;
-	}
-
 	return filteredArr;
 }
 
