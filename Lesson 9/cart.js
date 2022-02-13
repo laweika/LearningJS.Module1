@@ -26,23 +26,39 @@ clear() - oчищает полностью нашу корзину, возвра
 print() - выводит в консоль JSON строку из массива items и на следующей строке выводит общую стоимость корзины;
 
 Для проверки работы функционала добавить 3 или более товаров в корзину, после вызвать метод print для вывода информации в консоль
+
 */
 
 const cart = {
 	items: [],
 	totalPrice: 0,
 	count: 0,
-	add(newItem, newItemPrice, newItemNum = 1) {
-		this.items.push(newItem);
-		increaseCount(newItemNum) {
-			count = + newItemNum;
+	add(newItem, newItemPrice, newItemCount = 1) {
+		let currentGood = {
+			name: newItem,
+			price: newItemPrice,
+			count: newItemCount,
 		};
-		calculateItemPrice(newItemPrice) {
-			totalPrice = + newItemPrice;
-		};
-		getTotalPrice(totalPrice) {
-			this.totalPrice;
-		};
+
+		this.items.push(currentGood);
+		console.log(currentGood);
+
+		this.increaseCount();
+		this.calculateItemPrice();
+		this.getTotalPrice();
+	},
+	increaseCount() {
+		this.items.forEach((item) => {
+			this.count += item.count;
+		});
+	},
+	calculateItemPrice() {
+		this.items.forEach((item) => {
+			this.totalPrice += item.price;
+		});
+	},
+	getTotalPrice() {
+		return this.totalPrice;
 	},
 	clear() {
 		return;
@@ -53,8 +69,9 @@ const cart = {
 	},
 };
 
-console.log(cart.add('barbi', 4500, 2));
+cart.add('barbi', 4500, 2);
 cart.add('teddy bear', 2100);
 cart.add('car toy', 1500, 8);
 
+console.log(cart.getTotalPrice())
 console.log(cart.print());
