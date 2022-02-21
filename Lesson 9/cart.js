@@ -41,20 +41,20 @@ const cart = {
 		};
 
 		this.items.push(currentGood);
-		console.log(currentGood);
 
 		this.increaseCount();
 		this.calculateItemPrice();
 		this.getTotalPrice();
 	},
 	increaseCount() {
+		console.log(this.items);
 		this.items.forEach((item) => {
-			this.count += item.count;
+			console.log(this.count += item.count);
 		});
 	},
 	calculateItemPrice() {
 		this.items.forEach((item) => {
-			this.totalPrice += item.price;
+			//item.price * item.count += this.totalPrice;
 		});
 	},
 	getTotalPrice() {
@@ -65,13 +65,13 @@ const cart = {
 	},
 	print(itemsList) {
 		itemsList = JSON.stringify(this.items);
-		return this.totalPrice;
+		return `Список покупок - ${itemsList},
+		Общая стоимость - ${this.totalPrice}`;
 	},
 };
 
-cart.add('barbi', 4500, 2);
+cart.add('barbi', 4500, 2, 'teddy bear', 2100);
 cart.add('teddy bear', 2100);
 cart.add('car toy', 1500, 8);
 
-console.log(cart.getTotalPrice())
 console.log(cart.print());
