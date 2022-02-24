@@ -47,15 +47,18 @@ const cart = {
 		this.getTotalPrice();
 	},
 	increaseCount() {
-		console.log(this.items);
+		let count = 0;
 		this.items.forEach((item) => {
-			console.log(this.count += item.count);
+			console.log(count += item.count);
 		});
+		this.count = count;
 	},
 	calculateItemPrice() {
+		let price = 0;
 		this.items.forEach((item) => {
-			//item.price * item.count += this.totalPrice;
+			console.log(price += item.count * item.price);
 		});
+		this.totalPrice = price;
 	},
 	getTotalPrice() {
 		return this.totalPrice;
@@ -70,7 +73,7 @@ const cart = {
 	},
 };
 
-cart.add('barbi', 4500, 2, 'teddy bear', 2100);
+cart.add('barbi', 4500, 2);
 cart.add('teddy bear', 2100);
 cart.add('car toy', 1500, 8);
 
