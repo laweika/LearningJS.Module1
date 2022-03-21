@@ -36,93 +36,92 @@ script.js в котором эта игра будет запускаться
 			computer: 0,
 		};
 
-		const str = prompt('камень, ножницы, бумага?');
+		const start = () => {
 
-		if (figure_rus === str) {
-			alert(`Компьютер: ${figure_rus}
+			const str = prompt('камень, ножницы, бумага?');
+
+			if (figure_rus === str) {
+				alert(`Компьютер: ${figure_rus}
 				Вы: ${str}
 				Ничья`)
-			console.log(`${figure_rus[0]} ${str[0]}`);
-			game();
-		};
+				console.log(`${figure_rus[0]} ${str[0]}`);
+				start();
+			};
 
-		switch (str) {
-			case "ножницы":
-				if (figure_rus = 'камень') {
-					alert(`Компьютер: ${figure_rus}
+			switch (str) {
+				case "ножницы":
+					if (figure_rus = 'камень') {
+						alert(`Компьютер: ${figure_rus}
 				Вы: ${str}
 				Вы проиграли`)
-					console.log(`${figure_rus[0]} ${str[0]}`)
+						console.log(`${figure_rus[0]} ${str[0]}`)
 
-					result.computer += 1;
-					break;
-				};
-				if (figure_rus = 'бумага') {
-					alert(`Компьютер: ${figure_rus}
+						result.computer += 1;
+						start();
+					};
+					if (figure_rus = 'бумага') {
+						alert(`Компьютер: ${figure_rus}
 					Вы: ${str}
 					Вы выиграли`)
-					console.log(`${figure_rus[0]} ${str[0]}`)
+						console.log(`${figure_rus[0]} ${str[0]}`)
 
-					result.player += 1;
-					break;
-				};
-			case "камень":
-				if (figure_rus = 'ножницы') {
-					alert(`Компьютер: ${figure_rus}
+						result.player += 1;
+						start();
+					};
+				case "камень":
+					if (figure_rus = 'ножницы') {
+						alert(`Компьютер: ${figure_rus}
 				Вы: ${str}
 				Вы выиграли`)
-					console.log(`${figure_rus[0]} ${str[0]}`)
+						console.log(`${figure_rus[0]} ${str[0]}`)
 
-					result.player += 1;
-					break;
-				};
-				if (figure_rus = 'бумага') {
-					alert(`Компьютер: ${figure_rus}
+						result.player += 1;
+						start();
+					};
+					if (figure_rus = 'бумага') {
+						alert(`Компьютер: ${figure_rus}
 				Вы: ${str}
 				Вы проиграли`)
-					console.log(`${figure_rus[0]} ${str[0]}`)
+						console.log(`${figure_rus[0]} ${str[0]}`)
 
-					result.computer += 1;
-					break;
-				};
-			case "бумага":
-				if (figure_rus = 'ножницы') {
-					alert(`Компьютер: ${figure_rus}
+						result.computer += 1;
+						start();
+					};
+				case "бумага":
+					if (figure_rus = 'ножницы') {
+						alert(`Компьютер: ${figure_rus}
 				Вы: ${str}
 				Вы проиграли`)
-					console.log(`${figure_rus[0]} ${str[0]}`)
+						console.log(`${figure_rus[0]} ${str[0]}`)
 
-					result.computer += 1;
-					break;
-				};
-				if (figure_rus = 'бумага') {
-					alert(`Компьютер: ${figure_rus}
+						result.computer += 1;
+						start();
+					};
+					if (figure_rus = 'бумага') {
+						alert(`Компьютер: ${figure_rus}
 				Вы: ${str}
 				Вы выиграли`)
-					console.log(`${figure_rus[0]} ${str[0]}`)
+						console.log(`${figure_rus[0]} ${str[0]}`)
 
-					result.player += 1;
-					break;
-				};
-		}
+						result.player += 1;
+						start();
+					};
+			}
 
-		if (str === '' || str === null) {
-			const confirmation = confirm('еще?');
-			console.log(confirmation);
-			if (confirmation === true) {
-				game();
-			} else {
-				alert(`Результат:
+			if (str === '' || str === null) {
+				const confirmation = confirm('еще?');
+				console.log(confirmation);
+				if (confirmation === true) {
+					start();
+				} else {
+					alert(`Результат:
 				Компьютер ${result.computer}
 				Вы ${result.player}`)
+				};
 			};
 		};
 
-
-		return function start() {
-
-		};
-
+		return start();
 	};
 
 	window.RPS = game;
