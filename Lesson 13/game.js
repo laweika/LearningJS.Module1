@@ -19,6 +19,8 @@ script.js в котором эта игра будет запускаться
 (() => {
 	const FIGURES_RUS = ['камень', 'ножницы', 'бумага'];
 
+	FIGURES_RUS[0] === FIGURES_RUS;
+
 	const getRandomIntInclusive = (min, max) => {
 		min = Math.ceil(min);
 		max = Math.floor(max);
@@ -34,31 +36,33 @@ script.js в котором эта игра будет запускаться
 		const start = () => {
 
 			const str = prompt('камень, ножницы, бумага?');
+			const answers = [...FIGURES_RUS];
 
 			let figure_rus = FIGURES_RUS[getRandomIntInclusive(0, 2)];
 			console.log(figure_rus);
 
-			if (figure_rus === str) {
+
+			if (figure_rus === str || figure_rus[0] === str[0]) {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${figure_rus}
 				Ничья`)
 				console.log(`${figure_rus[0]} ${str[0]}`);
 				start();
 			};
 
-			if (str === 'ножницы' && figure_rus === 'камень') {
+			if (str[0] === answers[1][0] && figure_rus === 'камень') {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${answers[1]}
 				Вы проиграли`)
-				console.log(`${figure_rus[0]} ${str[0]}`)
+				console.log(`${figure_rus[0]} ${answers[1]}`)
 
 				result.computer += 1;
 				start();
 			};
 
-			if (str === 'камень' && figure_rus === 'ножницы') {
+			if (str[0] === answers[0][0] && figure_rus === 'ножницы') {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${answers[0]}
 				Вы выиграли`)
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
@@ -66,9 +70,9 @@ script.js в котором эта игра будет запускаться
 				start();
 			};
 
-			if (str === 'бумага' && figure_rus === 'ножницы') {
+			if (str[0] === answers[2][0] && figure_rus === 'ножницы') {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${answers[2]}
 				Вы проиграли`)
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
@@ -76,9 +80,9 @@ script.js в котором эта игра будет запускаться
 				start();
 			};
 
-			if (str === 'ножницы' && figure_rus === 'бумага') {
+			if (str[0] === answers[1][0] && figure_rus === 'бумага') {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${answers[1]}
 				Вы выиграли`)
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
@@ -86,9 +90,9 @@ script.js в котором эта игра будет запускаться
 				start();
 			};
 
-			if (str === 'камень' && figure_rus === 'бумага') {
+			if (str[0] === answers[0][0] && figure_rus === 'бумага') {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${answers[0]}
 				Вы проиграли`)
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
@@ -96,9 +100,9 @@ script.js в котором эта игра будет запускаться
 				start();
 			};
 
-			if (str === 'бумага' && figure_rus === 'камень') {
+			if (str[0] === answers[2][0] && figure_rus === 'камень') {
 				alert(`Компьютер: ${figure_rus}
-				Вы: ${str}
+				Вы: ${answers[2]}
 				Вы выиграли`)
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
@@ -106,9 +110,8 @@ script.js в котором эта игра будет запускаться
 				start();
 			};
 
-			if (str === '' || str === null) {
+			if (str === '' || typeof str === 'null') {
 				const confirmation = confirm('еще?');
-				console.log(confirmation);
 				if (confirmation === true) {
 					start();
 				} else {
@@ -116,6 +119,10 @@ script.js в котором эта игра будет запускаться
 				Компьютер ${result.computer}
 				Вы ${result.player}`)
 				};
+			};
+
+			if (str[0] !== answers[0][0] || str[0] !== answers[1][0] || str[0] !== answers[2][0]) {
+				start();
 			};
 		};
 
