@@ -19,8 +19,6 @@ script.js в котором эта игра будет запускаться
 (() => {
 	const FIGURES_RUS = ['камень', 'ножницы', 'бумага'];
 
-	FIGURES_RUS[0] === FIGURES_RUS;
-
 	const getRandomIntInclusive = (min, max) => {
 		min = Math.ceil(min);
 		max = Math.floor(max);
@@ -33,11 +31,31 @@ script.js в котором эта игра будет запускаться
 			computer: 0,
 		};
 
-		const start = () => {
+		const str = prompt('камень, ножницы, бумага?');
+		console.log(str);
 
-			const str = prompt('камень, ножницы, бумага?');
+		if (str === null) {
+			const confirmation = confirm('еще?');
+			if (confirmation) {
+				console.log(confirmation);
+				start();
+			} else {
+				alert(`Результат:
+			Компьютер ${result.computer}
+			Вы ${result.player}`)
+			};
+		};
+
+		if (str === '') {
+			start();
+		};
+
+		if (str !== '' && str !== null) {
+			start();
+		};
+
+		function start() {
 			const answers = [...FIGURES_RUS];
-
 			let figure_rus = FIGURES_RUS[getRandomIntInclusive(0, 2)];
 			console.log(figure_rus);
 
@@ -47,7 +65,6 @@ script.js в котором эта игра будет запускаться
 				Вы: ${figure_rus}
 				Ничья`)
 				console.log(`${figure_rus[0]} ${str[0]}`);
-				start();
 			};
 
 			if (str[0] === answers[1][0] && figure_rus === 'камень') {
@@ -57,7 +74,6 @@ script.js в котором эта игра будет запускаться
 				console.log(`${figure_rus[0]} ${answers[1]}`)
 
 				result.computer += 1;
-				start();
 			};
 
 			if (str[0] === answers[0][0] && figure_rus === 'ножницы') {
@@ -67,7 +83,6 @@ script.js в котором эта игра будет запускаться
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
 				result.player += 1;
-				start();
 			};
 
 			if (str[0] === answers[2][0] && figure_rus === 'ножницы') {
@@ -77,7 +92,6 @@ script.js в котором эта игра будет запускаться
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
 				result.computer += 1;
-				start();
 			};
 
 			if (str[0] === answers[1][0] && figure_rus === 'бумага') {
@@ -87,7 +101,6 @@ script.js в котором эта игра будет запускаться
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
 				result.player += 1;
-				start();
 			};
 
 			if (str[0] === answers[0][0] && figure_rus === 'бумага') {
@@ -97,7 +110,7 @@ script.js в котором эта игра будет запускаться
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
 				result.computer += 1;
-				start();
+				console.log(result);
 			};
 
 			if (str[0] === answers[2][0] && figure_rus === 'камень') {
@@ -107,26 +120,8 @@ script.js в котором эта игра будет запускаться
 				console.log(`${figure_rus[0]} ${str[0]}`)
 
 				result.player += 1;
-				start();
-			};
-
-			if (str === '' || typeof str === 'null') {
-				const confirmation = confirm('еще?');
-				if (confirmation === true) {
-					start();
-				} else {
-					alert(`Результат:
-				Компьютер ${result.computer}
-				Вы ${result.player}`)
-				};
-			};
-
-			if (str[0] !== answers[0][0] || str[0] !== answers[1][0] || str[0] !== answers[2][0]) {
-				start();
 			};
 		};
-
-		return start();
 	};
 
 	window.RPS = game;
